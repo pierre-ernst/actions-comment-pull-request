@@ -1,11 +1,16 @@
 name: 'actions-comment-pull-request'
 description: 'GitHub action to comment pull request with customizable message'
 inputs:
+  ghToken:
+    description: 'GitHub Personal Access Token'
+    required: true
   message:
     description: 'message to add to the PR'
     required: true
-    default: 'Test message'
-
+  file-match:
+    description: 'regex to indicate when a modified file should be commented'
+    required: false
+    default: '.*'
 runs:
   using: 'node12'
   main: 'index.js'
